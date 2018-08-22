@@ -1,0 +1,34 @@
+javascript: window == main, as in global. in Node, the equivalent of window is global
+javascript: document == that is your actual page. document stores your actual page, the dom. In NODE it is called process
+
+RUN THIS FIRST!!
+npm init
+This creates package.json where it stores all the third party packages you installed with npm
+
+npm install lodash --save
+--this will install and update package.json
+This will now live in our project in a node modules folder
+
+
+DO NOT put the nodes_modules folder on github. You should install the stuff when redeploying!
+You just run "npm install" with no flags or options. This will cause npm to read package.json
+and install the modules listed in package.json
+
+
+nodemon does what django does. The script always run but when you save changes, it
+re-executes
+npm install nodemon -g
+-g means it wont be added to package.json. It means "global" and is installed as a machine
+wide utility (executable)
+It gets installed where node and npm live, outside of your project folders!
+
+to pass an argument to node:
+node app.js myarg1hallo myars2halle etc
+
+yargs make passing command line arguments much easier
+npm install yargs@4.7.1 --save
+@means specific version
+without --save it wont be added to the package.json file
+
+in js {} means object. We call it JSON object. JSON.strinigy in JS converts this object
+to a string. Almost like json.dumps in python. It wraps everything in double quotes
