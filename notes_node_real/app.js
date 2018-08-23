@@ -31,10 +31,12 @@ if (command === 'add'){
   notes.getAll();
 
 }else if (command === 'read' ){
-  notes.getNote(argv.title);
+  readNote = notes.getNote(argv.title);
+  console.log(`The note ${argv.title} has the body ${readNote}`);
 
 }else if (command === 'remove' ){
-  notes.removeNote(argv.title);
+  var note = notes.removeNote(argv.title);
+  console.log(note);
 
 }else {
   console.log('command not recognized');

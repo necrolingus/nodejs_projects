@@ -22,11 +22,15 @@ var fetchNotes = () => {
   }
 };
 
+
 var saveNotes = (notes) => {
   fs.writeFileSync('notes-data.json', JSON.stringify(notes), (err) => {
     if (err) throw err;
   });
 };
+
+
+
 
 var addNote = (title, body) => {
   //console.log('adding note: ', title, body);
@@ -51,17 +55,52 @@ var addNote = (title, body) => {
 };
 
 
+
+
 var getAll = () => {
   //console.log('getting all notes: ');
 };
 
+
+
+
 var getNote = (title) => {
-  console.log('getting note: ', title);
+  var notes = fetchNotes();
+  var theNote = notes.filter((note) => note.title === title);
+
+  if (theNote[0]){
+    return theNote[0]["body"]; //or theNote.title
+  }
+  else{
+    return "NOTE NOT FOUND! ";
+  }
+
 };
 
+
+
+
 var removeNote = (title) => {
-  console.log('removing note: ', title);
+  var notes = fetchNotes();
+  var savedNotes = notes.filter((note) => {
+    //note is a var that gets called for every item in the array
+    return  note.title !== title;
+  });
+  //Could've also said var savedNotes = notes.filter((notes) => note.title !== title);
+
+  saveNotes(savedNotes);
+
+  if (notes.length == savedNotes.length){
+    return "Nothing to remove";
+  }
+  else{
+    return `${title}  was removed`;
+  }
+  //or we could've said return notes.length !== savedNotes.length;
+  //this will return true of false
 };
+
+
 
 module.exports = {
   addNote: addNote,
