@@ -28,7 +28,21 @@ if (command === 'add'){
     console.log(`Note created: ${note.title} with body ${note.body}` )
   }
 } else if (command === 'list' ){
-  notes.getAll();
+  allNotes = notes.getAll();
+  console.log(`Printing this many notes: ${allNotes.length}`)
+  console.log(allNotes);
+
+  allNotes.forEach((note) =>  console.log(`Printing note: ${note.title} -- ${note.body}`));
+
+  // or like this
+  // allNotes.forEach((note) => {
+  //   console.log(`Printing note: ${note.title} -- ${note.body}`);
+  // });
+
+  // or in normal function syntax
+  // allNotes.forEach(function func_name(note) {
+  //   console.log(`Printing note: ${note.title} -- ${note.body}`);
+  // });
 
 }else if (command === 'read' ){
   readNote = notes.getNote(argv.title);

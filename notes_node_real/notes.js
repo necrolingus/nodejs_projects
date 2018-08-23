@@ -58,7 +58,8 @@ var addNote = (title, body) => {
 
 
 var getAll = () => {
-  //console.log('getting all notes: ');
+  var notes = fetchNotes();
+  return notes;
 };
 
 
@@ -82,6 +83,22 @@ var getNote = (title) => {
 
 var removeNote = (title) => {
   var notes = fetchNotes();
+
+  //This is what the filter function looks like in normal module
+  // var numbers = [1, 3, 6, 8, 11];
+  // var lucky = numbers.filter(function(number) {
+  //   return number > 7;
+  // });
+  // console.log(lucky);
+
+  //or we can give the function a name if we want to:
+  // var numbers = [1, 3, 6, 8, 11];
+  // var lucky = numbers.filter(function func_name(number) {
+  //   return number > 7;
+  // });
+  // console.log(lucky);
+
+
   var savedNotes = notes.filter((note) => {
     //note is a var that gets called for every item in the array
     return  note.title !== title;
