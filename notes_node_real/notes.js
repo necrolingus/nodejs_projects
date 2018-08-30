@@ -28,7 +28,12 @@ var saveNotes = (notes) => {
     if (err) throw err;
   });
 };
-
+//or you can write it is as such
+// function saveNotes (notes) {
+//   fs.writeFileSync('notes-data.json', JSON.stringify(notes), (err) => {
+//     if (err) throw err;
+//   });
+// };
 
 
 

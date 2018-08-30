@@ -1,10 +1,42 @@
 //this is the "main" file we will run from the command line
 console.log("starting apps.js");
 
+
+var title_opt = {
+  describe: 'Add title of note',
+  demand: true, //this says that title is required
+  alias: 't' //e.g. t instead of --title
+}
+
+var body_opt = {
+  describe: 'Add body of note',
+  demand: true, //this says that title is required
+  alias: 'b' //e.g. t instead of --title
+}
+
 const fs = require('fs');
 const _ = require('lodash');
 const yargs = require('yargs');
-const argv = yargs.argv;
+const argv = yargs
+.command('add','Add a new note', {
+  title:title_opt,
+  body:body_opt
+})
+.command('list','List all notes')
+
+.command('read', 'Read a note', {
+  title:title_opt
+})
+.command('remove', 'Remove a note', {
+  title:title_opt
+})
+.help().argv; //help allows you to call --help
+
+
+//can also be written as
+//const argv = yargs
+//  .command()
+//  .argv;
 
 const notes = require('./notes.js');
 
