@@ -16,12 +16,13 @@ const argv = yargs
   .alias('help','h')
   .argv;
 
-
+//callbacks and promises are ways to synchronize the asynchronous nature of node
 geocode.geocodeAddress(argv.a, (errorMsg, results) => {
   if (errorMsg){
     console.log(errorMsg);
   }else {
     console.log(results.Address);
+
     weather.getWeater(results.Latitude, results.Longitude, (errorMsg, weatherResults) => {
       if (errorMsg){
         console.log(errorMsg);
@@ -31,6 +32,7 @@ geocode.geocodeAddress(argv.a, (errorMsg, results) => {
         console.log(`The feels like temperature is: ${weatherResults.apparentTemperature}`);
       }
     });
+    
   }
 });
 
