@@ -18,6 +18,16 @@ app.use(express.static(publicPath));
 io.on('connection', (socket) => { //here, socket refers to the individual socket connection
   console.log('New user connected');
 
+  socket.on('createMessage', (message) => { //the second argument is the data you want to emit. We'll emit an object
+    io.emit('newMessage', {
+      from: message.from,
+      text: message.text,
+      createdAt: new Date().getTime()
+    }); //io emits to EVERYONE. Socket emits to that user only
+    console.log('new msg: ',message);
+  });
+
+
   socket.on('disconnect', ()=>{
     console.log('A user disconnected');
   });
