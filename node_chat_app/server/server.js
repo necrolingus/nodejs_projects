@@ -28,11 +28,12 @@ io.on('connection', (socket) => { //here, socket refers to the individual socket
   socket.broadcast.emit('newMessage', generateMessage('Admin', 'A new user joined'));
 
 
-  socket.on('createMessage', (message) => {
+  socket.on('createMessage', (message, callback) => { //callback is the ack. The client has a 3rd argument which is a function
     //EVERYONE gets this message
     console.log('new msg: ',message);
     io.emit('newMessage', generateMessage(message.from, message.text));
-
+    //callback(); //we can call callback() just like this as well
+    callback('This is from the server');
     //io emits to EVERYONE. Socket emits to that user only
     //broadcast emits to everyone except the person who sent the message
     // socket.broadcast.emit('newMessage', {
