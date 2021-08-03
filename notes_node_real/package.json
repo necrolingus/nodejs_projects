@@ -9,7 +9,7 @@
   "author": "leigh williams",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.10",
-    "yargs": "^4.7.1"
+    "lodash": "^4.17.21",
+    "yargs": "^17.0.1"
   }
 }
