@@ -124,3 +124,6 @@ Will subscribe to remote server topic, then pass it on to local server topic, th
 Simple enough to expand on and use out of the box
 
 
+# magic_mirror
+my magic mirror docker-compose and config
+
