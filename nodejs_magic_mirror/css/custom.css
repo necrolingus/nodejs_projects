@@ -1,0 +1,28 @@
+body {
+cursor:default;
+}
+
+.xsmall {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.small {
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.medium {
+  font-size: 24px;
+  line-height: 26px;
+}
+
+.large {
+  font-size: 34px;
+  line-height: 36px;
+}
+
+.xlarge {
+  font-size: 50px;
+  line-height: 55px;
+}
